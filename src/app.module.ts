@@ -2,10 +2,8 @@ import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { async } from 'rxjs'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { Category } from './category/category.entity'
 import { CategoryModule } from './category/category.module'
 
 @Module({
@@ -22,14 +20,6 @@ import { CategoryModule } from './category/category.module'
         logging: true
       })
     }),
-    // TypeOrmModule.forRoot({
-    //   type: 'postgres',
-    //   url: '',
-    //   autoLoadEntities: true,
-    //   synchronize: true,
-    //   // entities: [Category],
-    //   logging: true
-    // }),
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql'
     }),
